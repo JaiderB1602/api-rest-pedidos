@@ -1,0 +1,40 @@
+# Ignorar archivos de entorno local
+.env
+.env.local
+
+# Ignorar archivos de configuración de IDE
+.vscode/
+.idea/
+
+# Ignorar archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+
+# Ignorar entornos virtuales
+venv/
+env/
+.venv/
+
+# Ignorar archivos de Docker
+docker-compose.override.yml
+
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar dependencias de Python (si usas requirements.txt)
+# Si usas un entorno virtual, no necesitas ignorar esto
+# venv/
+# env/
+# .venv/
+
+# Ignorar logs y archivos temporales
+*.log
+*.tmp
