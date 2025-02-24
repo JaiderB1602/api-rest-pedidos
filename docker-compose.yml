@@ -7,3 +7,6 @@ services:
       - "5000:5000"
     volumes:
       - .:/app  # Monta el directorio actual en el contenedor
+    environment:
+      - FLASK_ENV=development
+      - DATABASE_URL=sqlite:////app/instance/db.sqlite  # Ruta a la base de datos SQLite
