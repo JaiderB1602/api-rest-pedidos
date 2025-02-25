@@ -7,7 +7,7 @@ def swagger_config():
             "version": "1.0.0"
         },
         "basePath": "/api",
-        "schemes": ["http"],
+        "schemes": ["https"],
         "paths": {
             "/usuarios": {
                 "get": get_usuarios_config(),
