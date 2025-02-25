@@ -36,8 +36,9 @@ def create_app():
     def get_swagger():
         return jsonify(swagger_config())
     
-    SWAGGER_URL = '/docs'  # URL para acceder a la interfaz Swagger UI
-    API_URL = 'https://api-rest-pedidos-production.up.railway.app/api/swagger.json'  # URL corregida con HTTPS
+    # 🔹 **Mantener `/docs` para Swagger**
+    SWAGGER_URL = '/docs'  
+    API_URL = 'https://api-rest-pedidos-production.up.railway.app/api/swagger.json'  
     
     swaggerui_blueprint = get_swaggerui_blueprint(
         SWAGGER_URL,
@@ -48,5 +49,10 @@ def create_app():
         }
     )
     app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
-    
+
+    # 🔹 **Redirigir la raíz `/` a `/docs`**
+    @app.route('/')
+    def redirect_to_docs():
+        return redirect('/docs', code=302)
+
     return app
