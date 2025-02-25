@@ -1,2 +1,5 @@
-Flask==2.3.2
-Flask-SQLAlchemy==3.0.5
+Flask==2.0.1
+Werkzeug==2.0.3
+Flask-SQLAlchemy==2.5.1
+SQLAlchemy==1.4.22  # Asegúrate de usar una versión compatible con Flask-SQLAlchemy 2.5.1
+flask-swagger-ui==3.36.0

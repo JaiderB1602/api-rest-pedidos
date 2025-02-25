@@ -1,5 +1,6 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_swagger_ui import get_swaggerui_blueprint
 from config import Config
 
 # Crear una instancia de SQLAlchemy
@@ -16,5 +17,24 @@ def create_app():
     # Registrar el Blueprint (rutas)
     from app.routes import bp
     app.register_blueprint(bp)
+    
+    # Configuración de Swagger UI
+    from swagger import swagger_config
+    
+    @app.route('/api/swagger.json')
+    def get_swagger():
+        return jsonify(swagger_config())
+    
+    SWAGGER_URL = '/docs'  # URL para acceder a la interfaz Swagger UI
+    API_URL = '/api/swagger.json'  # Donde se encuentra tu especificación Swagger
+    
+    swaggerui_blueprint = get_swaggerui_blueprint(
+        SWAGGER_URL,
+        API_URL,
+        config={
+            'app_name': "API REST Pedidos"
+        }
+    )
+    app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
     
     return app
