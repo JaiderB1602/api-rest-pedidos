@@ -9,26 +9,23 @@ def swagger_config():
         "basePath": "/api",
         "schemes": ["http"],
         "paths": {
-            # Endpoints de Usuarios
             "/usuarios": {
-                "get": get_usuarios_config(),  # GET /usuarios (todos los usuarios)
-                "post": post_usuario_config()  # POST /usuarios (crear un usuario)
+                "get": get_usuarios_config(),
+                "post": post_usuario_config()
             },
             "/usuarios/{id}": {
-                "get": get_usuario_by_id_config(),  # GET /usuarios/{id} (un usuario por ID)
-                "put": put_usuario_config(),  # PUT /usuarios/{id} (actualizar un usuario)
-                "delete": delete_usuario_config()  # DELETE /usuarios/{id} (eliminar un usuario)
+                "get": get_usuario_by_id_config(),
+                "put": put_usuario_config(),
+                "delete": delete_usuario_config()
             },
-
-            # Endpoints de Pedidos
             "/pedidos": {
-                "get": get_pedidos_config(),  # GET /pedidos (todos los pedidos)
-                "post": post_pedido_config()  # POST /pedidos (crear un pedido)
+                "get": get_pedidos_config(),
+                "post": post_pedido_config()
             },
             "/pedidos/{id}": {
-                "get": get_pedido_by_id_config(),  # GET /pedidos/{id} (un pedido por ID)
-                "put": put_pedido_config(),  # PUT /pedidos/{id} (actualizar un pedido)
-                "delete": delete_pedido_config()  # DELETE /pedidos/{id} (eliminar un pedido)
+                "get": get_pedido_by_id_config(),
+                "put": put_pedido_config(),
+                "delete": delete_pedido_config()
             }
         },
         "definitions": {
@@ -273,6 +270,10 @@ def usuario_create_schema():
         "type": "object",
         "required": ["nombre", "email"],
         "properties": {
+            "id": {
+                "type": "integer",
+                "description": "ID del usuario (autoincremental)"
+            },
             "nombre": {
                 "type": "string"
             },
