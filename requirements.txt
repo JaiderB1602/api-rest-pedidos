@@ -3,3 +3,4 @@ Werkzeug==2.0.3
 Flask-SQLAlchemy==2.5.1
 SQLAlchemy==1.4.22  # Asegúrate de usar una versión compatible con Flask-SQLAlchemy 2.5.1
 flask-swagger-ui==3.36.0
+Flask-CORS==4.0.1  # Cambia a la última versión estable

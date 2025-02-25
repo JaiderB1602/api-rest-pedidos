@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_swagger_ui import get_swaggerui_blueprint
+from flask_cors import CORS  # Importa CORS
 from config import Config
 
 # Crear una instancia de SQLAlchemy
@@ -13,6 +14,9 @@ def create_app():
     
     # Inicializar la base de datos con la aplicación
     db.init_app(app)
+    
+    # Habilitar CORS para todas las rutas
+    CORS(app)  # Esto habilita CORS para todas las rutas
     
     # Registrar el Blueprint (rutas)
     from app.routes import bp
