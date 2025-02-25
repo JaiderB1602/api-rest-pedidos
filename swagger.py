@@ -268,12 +268,8 @@ def delete_pedido_config():
 def usuario_create_schema():
     return {
         "type": "object",
-        "required": ["nombre", "email"],
+        "required": ["nombre", "email"],  # No incluir "id" aquí
         "properties": {
-            "id": {
-                "type": "integer",
-                "description": "ID del usuario (autoincremental)"
-            },
             "nombre": {
                 "type": "string"
             },
@@ -282,6 +278,7 @@ def usuario_create_schema():
             }
         }
     }
+
 
 def pedido_create_schema():
     return {
