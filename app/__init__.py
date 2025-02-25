@@ -33,12 +33,13 @@ def create_app():
     API_URL = '/api/swagger.json'  # Donde se encuentra tu especificación Swagger
     
     swaggerui_blueprint = get_swaggerui_blueprint(
-        SWAGGER_URL,
-        API_URL,
-        config={
-            'app_name': "API REST Pedidos"
-        }
-    )
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "API REST Pedidos",
+        'validatorUrl': None,  # Evita errores de validación automática
+    }
+)
     app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
     
     return app
